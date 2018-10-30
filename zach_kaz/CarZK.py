@@ -8,6 +8,7 @@ class Car:
             self.tax=(.15)
         else:
             self.tax=(.12)
+        self.display_all()
     def display_all(self):
         print("Price: $"+(str(self.Price)))
         print("Speed: "+str(self.Speed)+"mph")
