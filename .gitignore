@@ -107,3 +107,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# * There will not actually be any bonus points given out for using a tool
+# listed here. I made the whole thing up. Just stick to what the Coding Dojo
+# platform tells you to use. (Jupyter Notebooks is still worth looking into!)
+
+# Sincerely, 
+# lambdanerd
