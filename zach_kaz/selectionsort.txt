@@ -1,0 +1,10 @@
+def selectionSort(arr):
+    for y in range (0,len(arr)-1)
+    min=arr[y]
+    minpos=0
+    for x in range(y,len(arr))
+        if min>arr[x]:
+            min=arr[x]
+            minpos=x
+        arr[0],arr[minpos]=arr[minpos],arr[0]
+
