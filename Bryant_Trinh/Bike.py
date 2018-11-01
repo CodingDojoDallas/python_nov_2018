@@ -1,9 +1,9 @@
 class bike:
-	def __init__(self, price, max_speed, miles):
+	def __init__(self, price, max_speed, miles=0):
 		self.price = price
 		self.max_speed = max_speed
 		self.miles = miles
-		miles = 0
+		
 
 	def displayinfo(self):
 		print("$" + self.price)
@@ -12,12 +12,12 @@ class bike:
 
 	def ride(self):
 		print("Riding")
-		miles+=10
+		self.miles+=10
 		return self
 
 	def reverse(self):
 		print("Reversing")
-		mile-=5
+		self.mile-=5
 		return self
 
 bike1 = bike(220,"30 MPH")
