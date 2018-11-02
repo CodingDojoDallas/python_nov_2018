@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="PLAYGROUND ASSIGNMENT" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PLAYGROUND!!!!</title>
+    <style>
+    body {
+        background-color: lightblue;
+        color: {{color}};
+    }
+    h1{
+        color:maroon;
+        margin-left:40px;
+        text-align: center
+    }
+    .box{
+        background-color: {{color}};
+        display:inline-block;
+        width: 300px;
+        height: 300px;
+        margin: 25px;
+    }
+    </style>
+</head>
+<body>
+<h1>WELCOME TO THE LAND OF THE BOXES!!!!</h1>
+{% for i in range(0,numberboxes):%}
+<div class="box"></div>
+{% endfor %}
+</body>
+</html>
