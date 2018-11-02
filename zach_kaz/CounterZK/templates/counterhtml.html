@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How Many Times Have I been here?</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+<style>
+form{
+    padding:20px;
+    display: inline-block;
+}
+body{
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>I can't remember...how many times have I been to this website recently?</h1>
+<h2>{{x}} Times</h2>
+<form action='/results' method='post'>
+<input type="submit" value='I want to go here two more times!'>
+</form>
+<form action='/bomb_session' method='post'>
+<input type='submit' value='Forget I was here'>
+</form>
+</body>
+</html>
