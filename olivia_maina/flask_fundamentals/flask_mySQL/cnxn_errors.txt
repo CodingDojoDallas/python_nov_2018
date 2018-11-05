@@ -1,0 +1,14 @@
+ERRORS:
+
+pymysql.err.InternalError: (1049, "Unknown database 'db'")
+
+fix: I changed the 'db' back from a string to a value. 
+
+pymysql.err.OperationalError: (1045, "Access denied for user 'oliviamaina'@'localhost' (using password: YES)")
+
+fix: I recreated the variable user and set it to value 'root'.
+
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'hostlocal' ([Errno 8] nodename nor
+ servname provided, or not known)")
+
+ fix: I had host= 'localhost' from 'hostlocal'
