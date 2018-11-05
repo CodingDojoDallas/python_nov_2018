@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Number Game</title>
+	<style>
+		#message{
+			font-size: 30px;
+		}
+		#container{
+			background-color:lightblue;
+			width:800px;
+			margin: 0px auto;
+			text-align:center;
+		}
+		h1,h2{
+			color:darkorange;
+		}
+		input{
+			margin-top: 10px;
+			background-color:black;
+			color:white;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h1>Here is the Great Number Game!</h1>
+		<h2> I am thinking of a number between 1 and 100....</h2>
+		<h2> Have a guess!</h2>
+		<form action="/guess" method='POST'>
+			<input type="text" name="number">
+			<input type="submit" name="" value="sumbit">
+		</form>
+		<form action='/reset'>
+			<input type="submit" name="" value="reset">
+		</form>
+		<div id="message">
+			{{message}}
+		</div>
+	</div>
+</body>
+</html>

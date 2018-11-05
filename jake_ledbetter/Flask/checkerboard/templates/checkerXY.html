@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CheckerBoard</title>
+	<style>
+		*{
+			font-size: 0px
+		}
+		#checkerBoard{
+			width:{{x*60}}px;
+			height:{{y*60}}px;
+			border:solid 1px black;
+			padding:0px;
+		}
+		.redSquare{
+			width:60px;
+			height:60px;
+			background-color:red;
+			margin:0px;
+			display:inline-block;
+		}
+		.blackSquare{
+			width:60px;
+			height:60px;
+			background-color:black;
+			margin:0px;
+
+			display:inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div id="checkerBoard">
+		{%for i in range(0,y)%}
+			{%for j in range(0,x)%}
+				{%if j % 2 == 0%}
+					{%if i % 2 == 0%}
+						<div class="redSquare"></div>
+					{%endif%}
+				{%endif%}
+				{%if j % 2 == 1%}
+					{%if i % 2 == 0%}
+						<div class="blackSquare"></div>
+					{%endif%}
+				{%endif%}
+				{%if j % 2 == 0%}
+					{%if i % 2 == 1%}
+						<div class="blackSquare"></div>
+					{%endif%}
+				{%endif%}
+				{%if j % 2 == 1%}
+					{%if i % 2 == 1%}
+						<div class="redSquare"></div>
+					{%endif%}
+				{%endif%}
+			{% endfor %}
+		{% endfor %}
+
+	</div>
+</body>
+</html>

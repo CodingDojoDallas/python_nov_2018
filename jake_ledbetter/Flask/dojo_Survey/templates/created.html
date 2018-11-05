@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Created</title>
+</head>
+<body>
+	<h3>Displaying information in request form</h3>
+	<p>Name: {{ request.form['name'] }}</p>
+	<p>Dojo Location: {{ request.form['location'] }}</p>
+	<p>Favorite Language: {{ request.form['language'] }}</p>
+	
+	<a class='btn btn-secondary' href='/'>Go Back</a>
+</body>
+</html>
