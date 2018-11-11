@@ -1,0 +1,31 @@
+<div id="container">
+    <h2 class="bg-gray">Report Dashboard</h2>
+    <!-- date form -->
+    <form>
+        <input type="date" name="startdate">
+        <input type="date" name="enddate">
+        <input type="submit" value="Update">
+    </form>
+    <div id="body">
+        <h3><u>List of all customers and # of leads</u></h3>
+        <table>
+            <thead class="bg-gray">
+                <th>Customer Name</th>
+                <th>Number of Leads</th>
+            </thead>
+            <tbody>
+                {% for i in leadsarr %}
+                <tr>
+                    {% if ['customer_name'] and ['number_of_leads'] %}
+                    <td>{{ i['customer_name'] }}</td>
+                    <td>{{ i['number_of_leads'] }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div id="chartContainer"></div>
+            <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+            <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    </div>
+</div>

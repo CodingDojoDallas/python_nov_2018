@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <title>Dojo Survey Results</title>
+    <style>
+        button {
+            background-color: rgba(29, 61, 129, 0.582);
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+<body>
+     <h1>Submitted Info</h1>
+     <table class="table table-bordered">
+            <tr>
+             <td><h4>Name:</h4></td>
+             <td>{{ request.form['name'] }}</td>
+         </tr>
+         <tr>
+            <td><h4>Location:</h4></td>
+            <td>{{ request.form['location'] }}</td>
+        </tr>
+        <tr>
+            <td><h4>Language:</h4></td>
+            <td>{{ request.form['language'] }}</td>
+        </tr>
+        <tr>
+            <td><h4>Comment:</h4></td>
+            <td>{{ request.form['comment'] }}</td>
+        </tr>
+     </table>
+     <form action="/home" method="POST">
+        <button type="submit"><h4>Go Back</h4></button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="static/loginregistration.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <h1 class="mt-4">Big Business</h1>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">See Us Work</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+      <!-- REGISTRATION SECTION -->
+      <div class="col-md-5 ml-3">
+          <h3 class="font-weight-bold col-md-8">Register Here!</h3>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              {% for message in messages %}
+                  <p id="flash">{{message}}</p>
+              {% endfor %}
+          {% endif %}
+      {% endwith %}
+      <form action="/process" method="post">
+          <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label">Email:</label>
+              <div class="col-sm-2">
+                  <input type="text" name="email" class="form-control" value="" >
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="first_name" class="col-sm-2 col-form-label">First Name:</label>
+              <div class="col-sm-2">
+                  <input type="text" name="first_name" class="form-control" value="" >
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="last_name" class="col-sm-2 col-form-label">Last Name:</label>
+              <div class="col-sm-2">
+                  <input type="text" name="last_name" class="form-control" value="" >
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="password1" class="col-sm-2 col-form-label">Password:</label>
+              <div class="col-sm-2">
+                  <input type="password" name="password1" class="form-control" value="" >
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="password2" class="col-sm-2 col-form-label">Confirm Password:</label>
+              <div class="col-sm-2">
+                  <input type="password" name="password2" class="form-control" value="" >
+              </div>
+          </div>
+          <input type="submit" name="submit" value="Submit">
+      </form>
+
+      </div>
+
+      </div>
+  </div>
+
+
+            
+
+
+
+
+
+
+</body>
+</html>
+
+

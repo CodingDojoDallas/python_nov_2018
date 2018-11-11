@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Dojo Survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        #submit {
+            font-size: 20px;
+            background-color: rgba(43, 214, 226, 0.452);
+            border-radius: 10px;
+        }
+        select {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="col-md-5">
+
+        <h1>Dojo Survey</h1>
+        <form action="results" method="POST">
+            <table class="table table-bordered">
+                <tr>
+                    <td><h4>Your Name:</h4></td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td><h4>Dojo Locations</h4></td>
+                    <td>
+                        <select name="location" id="location">
+                            <option value="Dallas">Dallas</option>
+                            <option value="Tulsa">Tulsa</option>
+                            <option value="Seattle">Seattle</option>
+                            <option value="San Jose">San Jose</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>Favorite Language</h4></td>
+                    <td>
+                        <select name="language" id="language">
+                            <option value="Python">Python</option>
+                            <option value="Ruby">Ruby</option>
+                            <option value="Mean">Mean</option>
+                            <option value="IOS">IOS</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <h4>Comment (optional)</h4>
+                <textarea name="comment" id="comment" cols="40" rows="5"></textarea>
+            </div>
+            <input id="submit" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
