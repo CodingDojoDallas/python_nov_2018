@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Survey</title>
+    <link rel='stylesheet' type='text/css' href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class='container'>
+        <form action='/result' method='POST'>
+            <table>
+                <tr>
+                    <th>Name:</th>
+                    <th>
+                        <input type='text' name='name'>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Dojo Location:</th>
+                    <th>
+                        <select name='location'>
+                            <option value='Dallas'>Dallas,TX</option>
+                            <option value='Tulsa'>Tulsa,OK</option>
+                            <option value='LA'>Los Angeles,CA</option>
+                            <option value='Seattle'>Seattle,WA</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Favorite Language:</th>
+                    <th>
+                        <select name='language'>
+                            <option value='Python'>Python</option>
+                            <option value='Mean'>Mean</option>
+                            <option value='Ruby'>Ruby</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Comments(optional):</th>
+                    <th>
+                        <textarea name='comment' id='comment' rows=5 cols=50></textarea>
+                        <button class='btn btn-primary'>Submit</button>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

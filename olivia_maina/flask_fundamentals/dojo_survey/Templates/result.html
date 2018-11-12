@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Survey Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+    <div class='container'>
+        <h1>Submitted Info</h1>
+        <table class='table table-bordered'>
+            <tr>
+                <th>Name:</th>
+                <th>{{request.form['name']}}</th>
+            </tr>
+            <tr>
+                <th>Dojo Location:</th>
+                <th>{{request.form['location']}}</th>
+            </tr>
+            <tr>
+                <th>Favorite Language:</th>
+                <th>{{request.form['language']}}</th>
+            </tr>
+            <tr>
+                <th>Comments:</th>
+                <th>{{request.form['comment']}}</th>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>

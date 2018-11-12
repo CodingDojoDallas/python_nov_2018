@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>CHECKERBOARD</title>
+    <style>
+        table tr td {
+            width: 50px;
+            height: 50px;
+        }
+
+        .color1 {
+            background-color: black;
+        }
+
+        .color2 {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        {% for i in range(4): %}
+        <tr>
+            {% for j in range (4) %}
+            <td class='color1'></td>
+            <td class='color2'></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for j in range (4) %}
+            <td class='color2'></td>
+            <td class='color1'></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+
+</html>

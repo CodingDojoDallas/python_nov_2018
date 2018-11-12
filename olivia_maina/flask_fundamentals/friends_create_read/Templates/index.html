@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' type='text/css' href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <title>PyMySQL</title>
+</head>
+<body>
+    <div class='container col-md-6'>
+        <h1>These are my friends!</h1>
+        <table class='table table-bordered'>
+            <thead class='thead-dark'>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Occupation</th>
+                </tr>
+            </thead>
+            {% for friend in friends: %}
+            <tr>
+                <td>{{friend['first_name']}}</td>
+                <td>{{friend['last_name']}}</td>
+                <td>{{friend['occupation']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h1>Add a friend!</h1>
+            <form action='/create_friend' method='POST'>
+                <div class="form-group row">
+                    <label for="first_name" class="col-2 text-right text-primary font-weight-bold">First name:</label>
+                    <input type="text" name="first_name" class="form-control col-6">
+                </div>
+                <div class="form-group row">
+                    <label for='last_name' class='col-2 text-right text-primary font-weight-bold'> Last name:</label>
+                    <input type='text' name='last_name' class='form-control col-6'>
+                </div>
+                <div class='form-group row'>
+                    <label for='occupation' class='col-2 text-right text-primary font-weight-bold'>Occupation:</label>
+                    <input type='text' name='occupation' class= 'form-control col-6'>
+                    <button class='btn btn-warning' type='submit'>Add</button>
+                </div>
+            </form>
+    </div>
+
+    
+</body>
+</html>
