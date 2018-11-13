@@ -1,0 +1,32 @@
+</!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+	background-color: lightblue;
+    color: {{color}};
+}
+h1 {
+    color: maroon;
+    text-align: center;
+} 
+.box{
+	background-color: {{color}};
+	height:250px;
+	width: 250px;
+	border: 2px solid black;
+	display: inline-block;
+	margin: 10px;
+}
+</style>
+</head>
+<body>
+    <h1>Welcome! Show me the boxes</h1>
+    {% for i in range(0,boxnum): %}
+    <div class='box'></div>
+    {% endfor %}
+
+
+
+</body>
+</html>
