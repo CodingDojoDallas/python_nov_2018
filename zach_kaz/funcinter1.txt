@@ -1,0 +1,15 @@
+def randInt():
+    return round(random.random()*100)
+
+def randmax():
+    return round(random.random()*50)
+
+def randminfifty():
+    return round(random.random()*50)+50
+
+def randfivehund():
+    return round(random.random()*450)+50
+
+    
+
+

@@ -1,0 +1,36 @@
+<html>
+    <head>
+       <title>This is a Survey I promise, even though it's kinda a dumb survey</title>
+       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" media="screen">
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <style>
+   body{
+       margin:10px;
+   }
+   input, textarea,select{
+       display:block;
+       margin: 10px;
+   }
+       
+    </style>
+    </head>
+    <body>
+      <h1>A Survey</h1>
+      <h3>Give us your opinions</h3>
+      <form action='/result' method='post'>
+          Your DJ Name:<input type='text' name='name'>
+          Where you at? <input type='text' name='location'>
+          What do you spin? <select name="genre">
+              <option value="Dubstep">Dubstep</option>
+              <option value="Gangsta">Gangsta Rap</option>
+              <option value="Old-School">Old-School</option>
+              <option value="R&B">R&B</option>
+          </select>
+          What would you like more information about?<textarea name="info" placeholder="whatever"></textarea>
+          <input type='submit' value='Hit us up'>
+     
+        </form>
+    </body>
+</html>

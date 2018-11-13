@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Salesmen of the Year</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</head>
+<body>
+    <h1>Report Dashboard</h1>
+    <div id="calendar">
+        <h4>report dates</h4>        
+        <form action='/resetdates' method='post'>
+            <input type="date" name="date1">
+            <input type="date" name="date2">
+            <input type="submit" name="Update">
+        </form>
+    </div>
+    <div id="tablesection">
+        <h2>List of all salesmen and # of Leads</h2>
+        <table>
+            <tr>
+                <th>Salesman Name</th>
+                <th>Number of Leads</th>
+            </tr>
+            {% for i in friends: %}
+            <tr>
+                <td>{{i['first_name']}} {{i['last_name']}}</td>
+                <td>{{i['COUNT(leads.id)']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div id="graph">
+
+    </div>
+    <script>
+    var options = {
+	title: {
+		text: "Salesman and # of Leads"
+	},
+	subtitles: [{
+		text: "Between {{date1}} and {{date2}}"
+	}],
+	animationEnabled: true,
+	data: [{
+		type: "pie",
+		startAngle: 40,
+		toolTipContent: "<b>{label}</b>%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - {y}",
+		dataPoints: [
+		]
+	}]
+};
+{% for j in friends: %}
+options['data'][0]['dataPoints'].push({y:{{j['COUNT(leads.id)']}}, label:'{{j['first_name']}} {{j['last_name']}}'})
+{% endfor %}
+
+$("#graph").CanvasJSChart(options);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How Many Times Have I been here?</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">
+<style>
+form{
+    padding:20px;
+}
+body{
+    text-align: center;
+    color:purple;
+    background-color: palegoldenrod;
+}
+</style>
+</head>
+<body>
+<h1>Can you guess a random celebrity's favorite number?</h1>
+<h2>(hint: it's between 1 and 100)</h2>
+<form action='/guess' method='post'>
+    What number do you think it is?
+    <input type="number" name="numberguess" max=100 minlength=1 min=0>
+    <input type="submit" value='GUESS'>
+</form>
+{% if numberguess==1: %}
+<h2>YOU'RE RIGHT ON!</h2>
+<h2>The number is</h2>
+<h3>{{session.number}}</h3>
+<form action='/endsession' method='post'>
+<input type='submit' value="I want to try to guess another number"></form>  
+{% endif %}
+{% if numberguess==2: %}
+<h2>WRONG!</h2>
+<h2>Your guess is too low.</h2>
+{% endif %}
+{% if numberguess==3: %}
+<h2>WRONG!</h2>
+<h2>Your guess is too high.</h2>
+{% endif %}
+{% if (dis==1): %}
+<h2>The number is</h2>
+<h3>{{session.number}}</h3>
+<form action='/endsession' method='post'>
+<input type='submit' value="Try again">
+{% endif %}
+<form action='/answer' method='post'>
+<input type='submit' value="I can't freaking figure it out! Tell me what the answer is!!!">
+    
+</body>
+</html>
