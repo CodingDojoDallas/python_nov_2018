@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How Many Times Have I been here?</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<style>
+form{
+    padding:20px;
+}
+body{
+    text-align: center;
+    color:purple;
+    background-color: palegoldenrod;
+}
+.box{
+    display:inline-block;
+    border: 1pt solid black;
+    width: 250px;
+    height: 200px;
+    vertical-align: top;
+}
+.farm{
+    color: brown;
+    background-color: green;
+}
+.cave{
+    color: grey;
+    background-color: black;
+}
+.house{
+    color: blue;
+    background-color: brown;
+}
+.won {
+    color:gold;
+    background-color: blue;
+}
+.lost {
+    color: black;
+    background-color: red;
+}
+</style>
+</head>
+<body>
+    <h1>Who wants to be a millionaire?</h1>
+    <p>Your Gold: {{session['gold']}}</p>
+    <div class='box'>
+        <h3>Farm</h3>
+        <h6>(earns between 10-20 gold)</h6>
+        <form action="/process_money" method="POST">
+            <input type="hidden" name="building" value="farm" />
+            <input type="submit" value="Farm"/>
+        </form>    
+    </div>
+    <div class='box'>
+            <h3>Cave</h3>
+            <h6>(earns between 5-10 gold)</h6>
+            <form action="/process_money" method="POST">
+                <input type="hidden" name="building" value="cave" />
+                <input type="submit" value="Search for ore"/>
+            </form>    
+        </div>
+    <div class='box'>
+        <h3>House</h3>
+        <h6>(earns between 2-5 gold)</h6>
+        <form action="/process_money" method="POST">
+            <input type="hidden" name="building" value="house" />
+            <input type="submit" value="Pillage"/>
+        </form>    
+    </div>
+    <div class='box'>
+        <h3>Casino</h3>
+        <h6>(careful! earns or takes 0-50 gold)</h6>
+        <form action="/process_money" method="POST">
+            <input type="hidden" name="building" value="casino" />
+            <input type="submit" value="Gamble"/>
+        </form>    
+    </div>
+    <div>
+        <h5>Narrative</h5>
+        {{chunktext | safe}}
+    </div>
+
+    <form action="/reset" method="POST">
+    <input type="submit" value="I'm Done playing"/>
+    </form>    
+           
+</body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Fruit Store Checkout</title>
+    <link rel='stylesheet' type='text/css' href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class='container'>
+        <h1>Thank you for your order!</h1>
+        <div class='col-md-6'>
+            <p> We ordered {{total}} items for you and charged your student account on {{date}}</p>
+            <h2>You've ordered</h2>
+            <table class='table table-bordered'>
+                <thead class='thead-dark'>
+                    <tr>
+                        <th>Fruit Name</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Strawberry</td>
+                    <td>{{request.form['strawberry']}}</td>
+                </tr>
+                <tr>
+                    <td>Raspberry</td>
+                    <td>{{request.form['raspberry']}}</td>
+                </tr>
+                <tr>
+                    <td>Apple</td>
+                    <td>{{request.form['apple']}}</td>
+                </tr>
+            </table>            
+        </div>
+        <h3>Your information</h3>
+        <p>Name: {{request.form['name']}}</p>
+        <p>Your Student ID:{{request.form['studentid']}}</p>
+    </div>
+</body>
+</html>
