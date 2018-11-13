@@ -1,0 +1,123 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Session Words</title>
+  <style>
+    #container{
+      width:1200px;
+      min-height:1000px;
+      background-color:lightblue;
+      margin:0px auto;
+      text-align: center;
+    }
+    #containerL{
+      width:400px;
+      display: inline-block;
+      min-height: 500px;
+      background-color:lightblue;
+      vertical-align:top;
+    }
+    #containerR{
+      width:400px;
+      display: inline-block;
+      min-height:500px;
+      background-color:lightblue;
+      vertical-align:top;
+    }
+    li {
+      text-decoration: none;
+    }
+    h1{
+      color: darkred;
+    }
+    .small{
+      font-size: 15px;
+    }
+    .smallR{
+      color:red;
+      font-size: 15px;
+    }
+    .smallB{
+      color:blue;
+      font-size:15px;
+    }
+    .smallG{
+      color:green;
+      font-size:15px;
+    }
+    .big{
+      font-size:28px;
+      font-weight: bold;
+    }
+    .bigR{
+      font-size:28px;
+      color:red;
+      font-weight: bold;
+    }
+    .bigB{
+      font-size:28px;
+      color:blue;
+      font-weight: bold;
+    }
+    .bigG{
+      font-size:28px;
+      color:green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+  <div id="containerL">
+  <h1>Session Words</h1>
+  <form action='/add' method='POST'>
+    {% csrf_token %}
+    <input type='text'name='word' id='word' placeholder="word">
+    <ul>
+      <input type='hidden' name='color' id='black' value='black'>
+      <li>Red: <input type='radio' name='color' id='red' value='red'></li>
+      <li>Blue: <input type='radio' name='color' id='blue' value='blue'></li>
+      <li>Green: <input type='radio' name='color' id='green' value='green'</li>
+    </ul>
+    <ul>
+      <input type='hidden' name='size' value='0'>
+      <li>Big: <input type='checkbox' name='size' value='1'>
+    </ul>
+    <button type='submit'>Submit</button>
+  </form>
+  <form action='/clearSession'>
+    <button type='submit'>clear session</button>
+  </form>
+</div>
+<div id="containerR">
+  <h1>Session Wall</h1>
+  {% for i in request.session.Word %}
+    {% if i.size == '0' and i.color == 'black' %}
+      <p class='small'>{{i.word}}</p> received at {{i.datetime}}
+    {% endif %}
+    {% if i.size == '0' and i.color == 'red' %}
+      <p class='smallR'>{{i.word}}</p> received at {{i.datetime}}
+    {% endif %}
+    {% if i.size == '0' and i.color == 'blue' %}
+      <p class='smallB'>{{i.word}}</p> received at {{i.datetime}}
+    {% endif %}
+    {% if i.size == '0' and i.color == 'green' %}
+      <p class='smallG'>{{i.word}}</p> received at {{i.datetime}}
+    {% endif %}
+    {% if i.size == '1' and i.color == 'black' %}
+      <p class='big'>{{i.word}}</p> received at {{i.datetime}}
+    {% endif %}
+    {% if i.size == '1' and i.color == 'red' %}
+      <p class='bigR'>{{i.word}}</p> received at {{i.datetime}}
+    {% endif %}
+    {% if i.size == '1' and i.color == 'blue' %}
+      <p class='bigB'>{{i.word}}</p> received at {{i.datetime}}
+    {% endif %}
+    {% if i.size == '1' and i.color == 'green' %}
+      <p class='bigG'>{{i.word}}</p> received at {{i.datetime}}
+    {% endif %}
+  {% endfor %}
+  </div>
+  </div>
+</body>
+</html>

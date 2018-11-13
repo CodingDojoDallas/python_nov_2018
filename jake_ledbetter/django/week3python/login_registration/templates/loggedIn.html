@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Logged In</title>
+	<style>
+		#container{
+			width:800px;
+			margin:0px auto;
+			background-color: lightblue;
+			text-align: center;
+			color: darkorange;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h1>Hello {{session['first_name']}}. You have been logged in</h1>
+		<a href="/logOut">Log out</a>
+	</div>
+</body>
+</html>

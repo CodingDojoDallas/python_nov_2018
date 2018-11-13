@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Survey Form</title>
+  <style>
+    #container{
+      background-color: black;
+      color: white;
+      width:800px;
+      margin: 0px auto;
+      text-align: center;
+    }
+    td{
+      color:white;
+      margin-left: 30px;
+      outline:1px solid darkred;
+    }
+    table{
+      margin-left:300px;
+      outline: 1px solid darkred
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+  <h1>Survery Form</h1>
+  <form action='/process' method="POST">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td><input type='text' name='name'></td
+      </tr>
+      <tr>
+        <td>Location:</td>
+        <td>
+          <select name='location' id='location'>
+            <option value="Dallas">Dallas</option>
+            <option value ="Seattle">Seattle</option>
+            <option value="San Jose">San Jose</option>
+            <option value="Silicon Valley">Silicon Valley</option>
+          </select>
+        </td>
+      </tr>
+        <tr>
+          <td>Favorite language: </td>
+          <td>
+            <select name='language' id='language'>
+              <option value="C++">C++</option>
+              <option value="Java">Java</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="Ruby">Ruby</option>
+              <option value="HTML">HTML</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+        <label for='comment'>Comment: </label>
+        <textarea name='comment' cols='50' rows='5'></textarea>
+        <button type='submit'>Submit</button>
+  </form>
+</div>
+</body>
+</html>
