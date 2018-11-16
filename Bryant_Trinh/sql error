@@ -1,0 +1,12 @@
+indendtation error: unexpected indent
+#fix: use correct spacing and indentation for all lines of code.
+
+Error 1045- access denied for user root @ local host
+#fix: input correct password
+
+error 1049-  unknown database
+#fix: use correct database in server file
+
+Name error name is not defined
+#fix make sure names used are matching with each other
+

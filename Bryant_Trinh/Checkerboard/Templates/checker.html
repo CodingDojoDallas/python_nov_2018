@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time For Chess</title>
+    <style>
+    body{
+        font-size: 0px;
+    }
+    div {
+        margin=0;
+        padding=0px;
+        font-size=0pt;
+    }
+    div .row{
+     }
+    div .square{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+    }
+    .color1{
+        background-color: blue;
+    }
+    .color2{
+        background-color: yellow;
+    }
+    </style>
+</head>
+<body>
+    {% for i in range (0,y): %}
+    <div class="row">
+        {% if (i %2 ==0):%}
+            {% for i in range (0,x): %}
+                {%if (i%2==0): %}
+                <div class='square color1'></div>
+                {% else: %}
+                <div class='square color2'></div>
+                {% endif %}
+            {% endfor %}
+        {% else: %}
+            {% for i in range (0,x): %}
+                {% if (i%2==0): %}
+                <div class='square color2'></div>
+                {% else: %}
+                <div class='square color1'></div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+     </div>
+    {% endfor %}
+
+</body>
+</html>
