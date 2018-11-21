@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Table</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+	.ol{
+		outline:1px solid black;
+	}
+	</style>
+</head>
+<body>
+	<table class="table table-striped">
+		<thead>
+			<th class = "ol">First Name</th>
+			<th class = "ol">Last Name</th>
+			<th class = "ol">Full Name</th>
+		</thead>
+		<tbody>
+		{% for i in users: %}
+			<tr>
+				<td class = "ol">{{i['first_name']}}</td>
+				<td class = "ol">{{i['last_name']}}</td>
+				<td class = "ol">{{i['first_name'] + " " + i['last_name']}}</td>	
+			</tr>
+		{% endfor %}
+		</tbody>
+		</table>			
+	</table>
+</body>
+</html>

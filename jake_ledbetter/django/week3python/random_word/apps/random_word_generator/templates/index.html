@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Word Generator</title>
+  <style>
+      #container{
+        width:900px;
+        min-height: 500px;
+        background-color: black;
+        color: white;
+        margin:0px auto;
+        text-align: center;
+      }
+  </style>
+</head>
+<body>
+<div id='container'>
+  <h1>Random String Generator</h1>
+  <p>Iteration #: {{ request.session.iteration }}</p>
+  <h3>Random String: {{request.session.randomString}}</h3>
+  <form action='/generate' method='POST'>
+    {% csrf_token %}
+    <button type='submit'>Generate New String</button>
+  </form>
+  <form action='/reset' method='POST'>
+    {% csrf_token %}
+    <button type='submit'>Reset your iterations</button>
+  </form>
+</div>
+</body>
+</html>

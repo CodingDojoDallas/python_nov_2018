@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Logged In</title>
+	<style>
+		#container{
+			width:800px;
+			margin:0px auto;
+			background-color: lightblue;
+			text-align: center;
+			color: darkorange;
+		}
+		#leftContainer{
+			width:390px;
+			display:inline-block;
+			vertical-align: top;
+		}
+		#rightContainer{
+			width:390px;
+			display: inline-block;
+		}
+		.outline{
+			outline:1px solid black;
+		}
+		.black{
+			color:black;
+		}
+		.red{
+			color:darkred;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h1>Hello {{session['first_name']}}. You have been logged into the Wall</h1>
+		<div id="leftContainer">
+		<a href="/logOut">Log out</a>
+		<h3>The Wall</h3>
+		{% for i in messages %}
+			<div class="outline">
+			<p class='black'>From {{i['first_name']}} {{i['last_name']}}</p>
+			<p class='red'> {{ i['messageText'] }} </p>
+			<p>Sent at {{i['sentAt']}}</p>
+			<form action = '/delete' method='POST'>
+				<input type='hidden' name='delete' value="{{i['id']}}">
+				<input type='submit' value='delete'>
+			</form>
+			</div>
+			<br>
+		{% endfor %}
+		</div>
+		<div id="rightContainer">
+		{% for i in others %}
+			<p>{{ i['first_name'] }} {{ i['last_name'] }}</p>
+			<form action='/send' method='POST'>
+				<input type='hidden' name = 'rec_id' value = "{{i['id']}}">
+				<textarea name='message' cols='50' rows='4'></textarea>
+				<input type='submit' value='submit'>
+			</form>
+		{% endfor %}
+	</div>
+	</div>
+</body>
+</html>

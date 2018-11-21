@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Survery Form</title>
+  <style>
+    #container{
+      background-color: black;
+      color: white;
+      width:800px;
+      margin: 0px auto;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+  <h1>Your Submited Information</h1>
+  <h3>Fist Name: {{request.session.name}}</h3>
+  <h3>Location: {{request.session.location}}</h3>
+  <h3>Favorite Language: {{request.session.language}}</h3>
+  <h3>Comment: {{request.session.comment}}</h3>
+  <form action='/'>
+    {% csrf_token %}
+    <button type='submit'>Redo The Survey</button>
+  </form>
+</div>
+</body>
+</html>

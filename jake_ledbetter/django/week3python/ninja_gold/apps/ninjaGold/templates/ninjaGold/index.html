@@ -1,0 +1,72 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Ninja Gold</title>
+  <style>
+    #container{
+      width:1000px;
+      background-color: lightblue;
+      min-height: 800px;
+      margin:0px auto;
+      text-align: center;
+    }
+    .option{
+      display:inline-block;
+      color:darkred;
+      margin-left: 20px;
+      outline:1px solid black;
+    }
+    .green{
+      color:green;
+    }
+    .red{
+      color:red;
+    }
+  </style>
+</head>
+<body>
+  <div id='container'>
+    <h1>Ninja Gold</h1>
+    <h2>Your Gold: {{request.session.totalGold}}</h2>
+    <div class='option'>
+      <h3>House</h3>
+      <h4>earn 2-5 gold</h4>
+      <form action='/process' method='POST'>
+        {% csrf_token %}
+        <input type='hidden' name='option' value='house'>
+        <button type='submit'>Find Gold</button>
+      </form>
+    </div>
+    <div class='option'>
+      <h3>Cave</h3>
+      <h4>earn 5-10 gold</h4>
+      <form action='/process' method='POST'>
+        {% csrf_token %}
+        <input type='hidden' name='option' value='cave'>
+        <button type='submit'>Find Gold</button>
+      </form>
+    </div>
+      <div class='option'>
+        <h3>Farm</h3>
+        <h4>earn 10-20 gold</h4>
+        <form action='/process' method='POST'>
+          {% csrf_token %}
+          <input type='hidden' name='option' value='farm'>
+          <button type='submit'>Find Gold</button>
+        </form>
+      </div>
+      <div class='option'>
+        <h3>Casino</h3>
+        <h4>earn or lose 0-50 gold</h4>
+        <form action='/process' method='POST'>
+          {% csrf_token %}
+          <input type='hidden' name='option' value='casino'>
+          <button type='submit'>Find Gold</button>
+        </form>
+      </div>
+      {% for i in request.session.actions %}
+        <p class={{i.color}}>{{i.text}}</p>
+      {% endfor %}
+    </div>
+</body>
+</html>

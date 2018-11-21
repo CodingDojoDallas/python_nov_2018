@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Created</title>
+	<style>
+		#container{
+			width:500px;
+			margin:0px auto;
+			background-color:#ffa94f;
+			color:darkblue;
+			text-align: center;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h2>Validated user information</h2>
+		<p>First name: {{ request.form['first_name'] }}</p>
+		<p>Last name: {{ request.form['last_name'] }}</p>
+		<p>email: {{ request.form['email'] }}</p>
+		<p>Password: {{ request.form["password"] }} </p>
+		<a class='btn btn-secondary' href='/'>Go Back</a>
+	</div>
+</body>
+</html>
