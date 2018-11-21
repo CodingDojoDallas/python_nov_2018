@@ -1,0 +1,35 @@
+
+
+
+.bg-gray{
+    background-color: rgb(39, 85, 46);
+}
+
+form{
+    text-align: right;
+}
+
+table{
+    width: 40%;
+    border: 2px solid black;
+}
+
+thead{
+    text-align: left;
+}
+
+
+
+
+input[type=submit]{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(32, 65, 70);
+    color: white;
+    border: solid rgb(210, 223, 27);
+}
+
+#chartContainer{
+    height: 200px;
+    width: 40%;
+}

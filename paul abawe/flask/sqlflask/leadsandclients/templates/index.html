@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Leads & Clients</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="static/style.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <h1 class="mt-4">Big Business</h1>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">See Us Work</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<div class="container-fluid">
+    <h2>Report Dashboard</h2>
+    <!-- date form -->
+    <form>
+        <input type="date" name="startdate">
+        <input type="date" name="enddate">
+        <input type="submit" value="Update">
+    </form>
+    <div id="body">
+        <h3><u>List of all customers and # of leads</u></h3>
+        <table class="table table-bordered">
+            <thead class="bg-green">
+                <th>Customer Name</th>
+                <th>Number of Leads</th>
+            </thead>
+            <tbody>
+                {% for i in leadsarr %}
+                <tr>
+                    {% if ['customer_name'] and ['number_of_leads'] %}
+                    <td>{{ i['customer_name'] }}</td>
+                    <td>{{ i['number_of_leads'] }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div id="chartContainer"></div>
+
+        {% for i in leadsarr %}
+        {{ i }}
+        {% endfor %}
+        <script>
+
+            window.onload = function () {
+
+var options = {
+    title: {
+        text: "Customers and number of new leads"
+    },
+    subtitles: [{
+        text: "As of November, 2018"
+    }],
+    animationEnabled: true,
+    data: [{
+        type: "pie",
+        startAngle: 40,
+        toolTipContent: "<b>{label}</b>: {y}%",
+        showInLegend: "true",
+        legendText: "{label}",
+        indexLabelFontSize: 16,
+        indexLabel: "{label} - {y}%",
+        dataPoints: [
+            { y: 7, label: "Masaki Fujimoto" },
+            { y: 3, label: "Joe Smith" },
+            { y: 7, label: "Ryan Owen" },
+            { y: 4, label: "Michael Choi" },
+      
+        ]
+    }]
+};
+$("#chartContainer").CanvasJSChart(options);
+
+}
+                
+        </script> 
+
+        
+    </div>
+</div>
+
+            
+
+
+
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+
+
+</body>
+</html>

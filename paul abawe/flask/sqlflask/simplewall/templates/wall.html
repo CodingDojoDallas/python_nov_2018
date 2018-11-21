@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Wall</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="static/loginregistration.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<head>
+    <!-- <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WELCOME</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+        integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <style>
+        h1 {
+            color: green;
+            font-size: 15px;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        .wrapper {
+            margin-left: 20px;
+        }
+    </style> -->
+
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <h1 class="mt-4">Big Business</h1>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">See Us Work</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+      
+          </div>
+        </div>
+    </nav>
+
+     <div class="container-fluid">
+        <p><a href="/logout"> Logout</a></p>
+        {% with errors = get_flashed_messages(category_filter=["status"]) %}
+        {% if errors %}
+                {% for msg in errors %}
+                    <p class="error"> {{ msg }}</p>
+                {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% if "name" in session %}
+            <h1>Welcome, {{ session["name"] }}!</h1>
+        {% endif %}
+
+        <h3>{{ messagescol[0]["COUNT(*)"] }} Message(s) for you {{ session["name"] }}</h3>
+        {% for i in senders_name %}
+            <p> {{ i["first_name"] }} said </p>
+            <p>{{ i["message"] }}</p>
+        {% endfor %}
+
+
+        <h3>Send a message</h3>
+        You have sent a total of Y amount of messages so far.
+        
+
+        {% for i in users_id1 %}
+        <p>{{ i["first_name"] }}</p>
+        <form action="/send/{{ i['users_id1'] }}" method="post">
+            <div class="form-group">
+                <label for="comment"></label>
+                <input type="textarea" name="message" class="form-control" value="" rows="3">
+            </div>
+            <input type="submit" name="submit" value="Send">
+        </form>
+    {% endfor %}
+
+
+
+          </div> 
+
+ 
+
+
+      
+
+</body>
+
+</html>
